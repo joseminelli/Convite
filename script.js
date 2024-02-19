@@ -64,15 +64,9 @@ function gerarIngresso(nome) {
   var larguraFinal = maxWidth;
   var alturaFinal = maxWidth / proporcao;
 
-// Verifica se a largura final é maior do que a largura máxima permitida
-if (larguraFinal > maxWidth) {
-  larguraFinal = maxWidth; // Define a largura final como a largura máxima
-  alturaFinal = larguraFinal / proporcao; // Recalcula a altura com base na largura final
-}
-
-
-  canvas.width = larguraFinal;
-  canvas.height = alturaFinal;
+  canvas.width = 4146;
+  canvas.height = 4146 / proporcao;
+  
 
   var ctx = canvas.getContext("2d");
 
