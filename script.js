@@ -40,20 +40,32 @@ function exibirAlerta(mensagem) {
     }, 500);
   }, 5000);
 }
+function createCanvas(width, height, set2dTransform = true) {
+  const ratio = Math.ceil(window.devicePixelRatio);
+  const canvas = document.createElement('canvas');
+  canvas.width = width * ratio;
+  canvas.height = height * ratio;
+  canvas.style.width = `${width}px`;
+  canvas.style.height = `${height}px`;
+  if (set2dTransform) {
+    canvas.getContext('2d').setTransform(ratio, 0, 0, ratio, 0, 0);
+  }
+  return canvas;
+}
 
 function gerarIngresso(nome) {
   if (ingressoGerado) return;
 
   nomeInserido = nome;
 
-  var canvas = document.createElement("canvas");
+  var canvas = createCanvas(4146, 1517, false);
   var maxWidth = 1500;
   var proporcao = 4146 / 1517;
   var larguraFinal = maxWidth;
   var alturaFinal = maxWidth / proporcao;
 
   if (larguraFinal > window.innerWidth) {
-    larguraFinal = window.innerWidth - 50; 
+    larguraFinal = window.innerWidth - 50;
     alturaFinal = larguraFinal / proporcao;
   }
 
@@ -68,19 +80,15 @@ function gerarIngresso(nome) {
   background.onload = function () {
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-    ctx.font = "bold " + canvas.width * 0.04 + "px 'Montserrat', sans-serif"; // Definindo o tamanho e a fonte do texto
-    ctx.fillStyle = "#000000"; // Definindo a cor do texto
+    ctx.font = "bold " + canvas.width * 0.04 + "px 'Montserrat', sans-serif";
+    ctx.fillStyle = "#000000";
 
-    // Calculando a largura do texto com base no tamanho do nome
     var textWidth = ctx.measureText(nome).width;
 
-    // Definindo a posição horizontal do texto
-    var textX = canvas.width * 0.83 - textWidth / 2; // Alinhando o texto ao centro da imagem
+    var textX = canvas.width * 0.83 - textWidth / 2;
 
-    // Definindo a posição vertical do texto como o centro do canvas
     var textY = canvas.height / 2;
 
-    // Desenhando o texto no canvas
     ctx.fillText(nome, textX, textY);
 
     var ingressoImg = document.createElement("img");
@@ -102,7 +110,6 @@ function gerarIngresso(nome) {
     ingressoGerado = true;
   };
 }
-
 document
   .getElementById("formulario")
   .addEventListener("submit", async (event) => {
