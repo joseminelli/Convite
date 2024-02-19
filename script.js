@@ -9,6 +9,8 @@ const webhookUrl =
 
 btn.onclick = function () {
   if (!modalAberto) {
+    
+  document.getElementById("overlay3").style.display = "flex";
     console.log("Abrir modal");
     modalAberto = true;
     modal.style.display = "block";
@@ -21,6 +23,7 @@ span.onclick = function () {
 };
 
 function fecharModal(modal) {
+  document.getElementById("overlay3").style.display = "none";
   modal.style.animation = "fadeOut .5s";
   setTimeout(function () {
     modalAberto = false;
@@ -42,13 +45,13 @@ function exibirAlerta(mensagem) {
 }
 function createCanvas(width, height, set2dTransform = true) {
   const ratio = Math.ceil(window.devicePixelRatio);
-  const canvas = document.createElement('canvas');
+  const canvas = document.createElement("canvas");
   canvas.width = width * ratio;
   canvas.height = height * ratio;
   canvas.style.width = `${width}px`;
   canvas.style.height = `${height}px`;
   if (set2dTransform) {
-    canvas.getContext('2d').setTransform(ratio, 0, 0, ratio, 0, 0);
+    canvas.getContext("2d").setTransform(ratio, 0, 0, ratio, 0, 0);
   }
   return canvas;
 }
@@ -66,7 +69,6 @@ function gerarIngresso(nome) {
 
   canvas.width = 4146;
   canvas.height = 4146 / proporcao;
-  
 
   var ctx = canvas.getContext("2d");
 
@@ -147,6 +149,7 @@ document
   });
 
 function abrirModalIngresso() {
+  document.getElementById("overlay2").style.display = "flex";
   fecharModal(modal);
   var modalIngresso = document.getElementById("modal-ingresso");
   modalIngresso.style.display = "flex";
