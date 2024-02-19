@@ -2,8 +2,8 @@ var modal = document.getElementById("modal");
 var btn = document.getElementById("confirmarPresenca");
 var span = document.getElementsByClassName("close")[0];
 var modalAberto = false;
-var ingressoGerado = false; 
-var nomeInserido = ""; 
+var ingressoGerado = false;
+var nomeInserido = "";
 const webhookUrl =
   "https://discord.com/api/webhooks/1209177185320177755/cs8vbW6AJvAPSV7iwHFLqncZIi-48PtxjmLFE0qiEtHEaiPvQPC4IYL8QkC69EpjwJ0u";
 
@@ -47,8 +47,8 @@ function gerarIngresso(nome) {
   nomeInserido = nome;
 
   var canvas = document.createElement("canvas");
-  var maxWidth = 850; 
-  var proporcao = 4146 / 1517; 
+  var maxWidth = 1500;
+  var proporcao = 4146 / 1517;
   var larguraFinal = maxWidth;
   var alturaFinal = maxWidth / proporcao;
 
@@ -69,20 +69,19 @@ function gerarIngresso(nome) {
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
     ctx.font = "bold " + canvas.width * 0.04 + "px 'Montserrat', sans-serif"; // Definindo o tamanho e a fonte do texto
-ctx.fillStyle = "#000000"; // Definindo a cor do texto
+    ctx.fillStyle = "#000000"; // Definindo a cor do texto
 
-// Calculando a largura do texto com base no tamanho do nome
-var textWidth = ctx.measureText(nome).width;
+    // Calculando a largura do texto com base no tamanho do nome
+    var textWidth = ctx.measureText(nome).width;
 
-// Definindo a posição horizontal do texto
-var textX = canvas.width * 0.83 - textWidth / 2; // Alinhando o texto ao centro da imagem
+    // Definindo a posição horizontal do texto
+    var textX = canvas.width * 0.83 - textWidth / 2; // Alinhando o texto ao centro da imagem
 
-// Definindo a posição vertical do texto como o centro do canvas
-var textY = canvas.height / 2;
+    // Definindo a posição vertical do texto como o centro do canvas
+    var textY = canvas.height / 2;
 
-// Desenhando o texto no canvas
-ctx.fillText(nome, textX, textY);
-
+    // Desenhando o texto no canvas
+    ctx.fillText(nome, textX, textY);
 
     var ingressoImg = document.createElement("img");
     ingressoImg.src = canvas.toDataURL("image/jpeg");
@@ -99,7 +98,6 @@ ctx.fillText(nome, textX, textY);
     downloadBtnDiv.classList.add("download-btn");
     document.getElementById("modal-ingresso").appendChild(downloadBtnDiv);
     downloadBtnDiv.appendChild(downloadBtn);
-
 
     ingressoGerado = true;
   };
@@ -146,7 +144,7 @@ document
   });
 
 function abrirModalIngresso() {
-  fecharModal(modal); 
+  fecharModal(modal);
   var modalIngresso = document.getElementById("modal-ingresso");
   modalIngresso.style.display = "flex";
   modalIngresso.style.justifyContent = "center";
