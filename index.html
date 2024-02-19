@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite Festival de Música</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="header">
+                <h1>Festival de Música</h1>
+            </div>
+            <div class="details">
+                <p>Você está convidado para a festa !</p>
+                <p>Data: 02/03/2004</p>
+                <p>Local: [Insira o local da festa]</p>
+                <p>Texto que n sei oq vai ser aaaaaaa</p>
+                <div class="buttons">
+                    <button id="confirmarPresenca" class="btn"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Preencha o formulário de confirmação</h2>
+            <form id="formulario" action="">
+                <div class="justifyCenter">
+                    <div id="inputs">
+                        <input type='text' id='input' required ></input>
+                        <label 
+                               for='input' 
+                               class='placeholder'>
+                          Nome
+                        </label>
+                    </div>
+                </div>
+                    <input type="submit" class="btn" value="Confirmar">
+            </form>
+        </div>
+        <div class="overlay"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
