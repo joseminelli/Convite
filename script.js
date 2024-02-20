@@ -64,8 +64,6 @@ function gerarIngresso(nome) {
   var canvas = createCanvas(4146, 1517, false);
   var maxWidth = 1500;
   var proporcao = 4146 / 1517;
-  var larguraFinal = maxWidth;
-  var alturaFinal = maxWidth / proporcao;
 
   canvas.width = 4146;
   canvas.height = 4146 / proporcao;
