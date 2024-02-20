@@ -5,7 +5,7 @@ var modalAberto = false;
 var ingressoGerado = false;
 var nomeInserido = "";
 const webhookUrl =
-  "https://discord.com/api/webhooks/1209177185320177755/cs8vbW6AJvAPSV7iwHFLqncZIi-48PtxjmLFE0qiEtHEaiPvQPC4IYL8QkC69EpjwJ0u";
+  "https://discord.com/api/webhooks/1209240685140648016/vzkEmtJEB6rPeBitgj6vzq-EXvTiADEnWam9kff2BwjSuRrT4bhyOOe0wv7kHNEzJTEH";
 
 btn.onclick = function () {
   if (!modalAberto) {
