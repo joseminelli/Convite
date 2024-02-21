@@ -9,8 +9,7 @@ const webhookUrl =
 
 btn.onclick = function () {
   if (!modalAberto) {
-    
-  document.getElementById("overlay3").style.display = "flex";
+    document.getElementById("overlay3").style.display = "flex";
     console.log("Abrir modal");
     modalAberto = true;
     modal.style.display = "block";
